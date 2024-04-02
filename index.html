@@ -24,6 +24,13 @@
             console.log("Latitude: " + latitude);
             console.log("Longitude: " + longitude);
             console.log("Accuracy: " + accuracy + " meters");
+
+          
+            // Display the latitude, longitude, and accuracy values on the page
+            var location = document.createElement("p");
+            location.textContent = "Latitude: " + latitude + ", Longitude: " + longitude + ", Accuracy: " + accuracy + " meters";
+            document.body.appendChild(location);
+            
         }
     </script>
 </head>
