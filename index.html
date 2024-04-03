@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <h1>Under Development</h1>
-<p>This is going to be a portfolio website created using the NextJS framework. </p>
-
 <head>
-   
     <title>Peter Bizoukas Website - Under Development
     </title>
     <script>
@@ -35,13 +31,28 @@
             location.textContent = "Latitude: " + latitude + ", Longitude: " + longitude + ", Accuracy: " + accuracy + " meters";
             document.body.appendChild(location);
 
+            // Check if the lat/longitude is within a certain range
+            const SULBP1 = {lat: 41.584527, lng: -87.474722}; // Top Left
+            const SULBP2 = {lat: 41.584527, lng: -87.473389}; // Top Right
+            const SULBP3 = {lat: 41.584083, lng: -87.473306}; // Bot Right
+            const SULBP4 = {lat: 41.584083, lng: -87.474722}; // Bot Left
+            
+            if (latitude >= SULBP3.lat && latitude <= SULBP1.lat && longitude >= SULBP3.lng && longitude <= SULBP2.lng) {
+                console.log("You are within the SULB building");
+                var sulb = document.createElement("p");
+                sulb.textContent = "You are within the SULB building";
+                document.body.appendChild(sulb);
+            } else {
+                console.log("You are NOT within the SULB building");
+                var notSulb = document.createElement("p");
+                notSulb.textContent = "You are NOT within the SULB building";
+                document.body.appendChild(notSulb);
+            }
         }
 
         function showError(error) {
-            consle.log(error);
-        }
-
-        
+            console.log(error);
+        }       
     </script>
 </head>
 <body>
