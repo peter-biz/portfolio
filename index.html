@@ -4,12 +4,17 @@
 <p>This is going to be a portfolio website created using the NextJS framework. </p>
 
 <head>
-  
-    <title>Geolocation API Example</title>
+   
+    <title>Peter Bizoukas Website - Under Development
+    </title>
     <script>
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition(showPosition, showError, {
+                    enableHighAccuracy: true,
+                    timeout: 15000,
+                    maximumAge: 17000
+                });
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
@@ -23,15 +28,20 @@
             // Do something with the latitude, longitude, and accuracy values
             console.log("Latitude: " + latitude);
             console.log("Longitude: " + longitude);
-            console.log("Accuracy: " + accuracy + " meters");
+            console.log("Accuracy: " + accuracy + " meters"); 
 
-          
             // Display the latitude, longitude, and accuracy values on the page
             var location = document.createElement("p");
             location.textContent = "Latitude: " + latitude + ", Longitude: " + longitude + ", Accuracy: " + accuracy + " meters";
             document.body.appendChild(location);
-            
+
         }
+
+        function showError(error) {
+            consle.log(error);
+        }
+
+        
     </script>
 </head>
 <body>
@@ -39,4 +49,3 @@
     <button onclick="getLocation()">Get Location</button>
 </body>
 </html>
-
