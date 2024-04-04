@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Peter Bizoukas Website - Under Development
+    </title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError, {
+                    enableHighAccuracy: true,
+                    timeout: 15000,
+                    maximumAge: 17000
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        /*TEST COORDINATES:
+        *   Potter:  41.586511340457825, -87.47504375643874
+                var latitude = 41.58629801363845; 
+                var longitude = -87.47489613633094;
+            SULB: 41.58439176611451414, -87.47382380681304
+                var latitude = 41.58439176611451414;
+                var longitude = -87.47382380681304;
+            Gyte: 41.58535760929506, -87.47474165070558
+                var latitude = 41.58535760929506;
+                var longitude = -87.47474165070558;
+            Powers: 41.586212247304864, -87.47538538083892
+                var latitude = 41.586212247304864;
+                var longitude = -87.47538538083892;
+            CLO: 41.58692387606377, -87.4753879216367
+                var latitude = 41.58692387606377;
+                var longitude = -87.4753879216367;
+            NILS: 41.58347399433531, -87.47412780880333
+                var latitude = 41.58347399433531;
+                var longitude = -87.47412780880333;
+            Porter: 41.58520073648839, -87.47312967449056
+                var latitude = 41.58520073648839;
+                var longitude = -87.47312967449056;
+            Office of Admissions: 41.582880892778945, -87.4753650896866
+                var latitude = 41.582880892778945;
+                var longitude = -87.4753650896866;
+            Fitness: 41.58026844728949, -87.47405612921287
+                var latitude = 41.58026844728949;
+                var longitude = -87.47405612921287;
+            Counseling Center: 41.57940670824862, -87.47511291960083
+                var latitude = 41.57940670824862;
+                var longitude = -87.47511291960083;
+            Anderson: 41.58755263068507, -87.475474865609
+                var latitude = 41.58755263068507;
+                var longitude = -87.475474865609;
+        */
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            var accuracy = position.coords.accuracy;
+
+            // Do something with the latitude, longitude, and accuracy values
+            console.log("Latitude: " + latitude);
+            console.log("Longitude: " + longitude);
+            console.log("Accuracy: " + accuracy + " meters"); 
+            
+            // Display the latitude, longitude, and accuracy values on the page
+            var location = document.createElement("p");
+            location.textContent = "Latitude: " + latitude + ", Longitude: " + longitude + ", Accuracy: " + accuracy + " meters";
+            document.body.appendChild(location);
+
+            // SULB Building Coordinates
+            const SULBP1 = {lat: 41.584527, lng: -87.474722}; // Top Left
+            const SULBP2 = {lat: 41.584527, lng: -87.473389}; // Top Right
+            const SULBP3 = {lat: 41.584083, lng: -87.473306}; // Bot Right
+            const SULBP4 = {lat: 41.584083, lng: -87.474722}; // Bot Left
+
+            // Gyte Building Coordinates
+            const GYTEP1 = {lat: 41.58559579963701, lng: -87.47565221109035}; // Top Left
+            const GYTEP2 = {lat: 41.58550752684843, lng: -87.47417029072048}; // Top Right
+            const GYTEP3 = {lat: 41.585075189061406, lng: -87.47414615084114}; // Bot Right
+            const GYTEP4 = {lat: 41.58502804300239, lng: -87.47566830434324}; // Bot Left
+
+            // Potter Building Coordinates
+            const POTTERP1 = {lat: 41.586511340457825, lng: -87.47504375643874}; // Top Left
+            const POTTERP2 = {lat: 41.586513346627704, lng: -87.47474066684273}; // Top Right
+            const POTTERP3 = {lat: 41.58616728139962, lng: -87.47474334905155}; // Bot Right
+            const POTTERP4 = {lat: 41.586161262857495, lng: -87.47505984969162}; // Bot Left
+
+            // Powers Building Coordinates
+            const POWERSP1 = {lat: 41.58648626332894, lng: -87.47561372581177}; // Top Left
+            const POWERSP2 = {lat: 41.58648726641429, lng: -87.47516311473098}; // Top Right
+            const POWERSP3 = {lat: 41.58604691045072, lng: -87.47516445583538}; // Bot Right
+            const POWERSP4 = {lat: 41.58603988880509, lng: -87.47561372581177}; // Bot Left
+
+            // CLO Building Coordinates
+            const CLOP1 = {lat: 41.58719204054566, lng: -87.47575650012156}; // Top Left
+            const CLOP2 = {lat: 41.58721109895614, lng: -87.47507119576952}; // Top Right
+            const CLOP3 = {lat: 41.58653000805287, lng: -87.4750483969933}; // Bot Right
+            const CLOP4 = {lat: 41.58654104198329, lng: -87.4757444301806}; // Bot Left
+
+            // Anderson Building Coordinates
+            const ANDERSONP1 = {lat: 41.58802407130252, lng: -87.47562641050784}; // Top Left
+            const ANDERSONP2 = {lat: 41.58802106211808, lng: -87.47498670370564}; // Top Right
+            const ANDERSONP3 = {lat: 41.5874262439056, lng: -87.47493440063377}; // Bot Right
+            const ANDERSONP4 = {lat: 41.58738311184911, lng: -87.47563579823868}; // Bot Left
+
+            // NILS Building Coordinates
+            const NILSP1 = {lat: 41.58361944832225, lng: -87.47458185241473}; // Top Left
+            const NILSP2 = {lat: 41.58361042015047, lng: -87.47343252589033}; // Top Right
+            const NILSP3 = {lat: 41.58337819513019, lng: -87.47355926026957}; // Bot Right
+            const NILSP4 = {lat: 41.583375185729196, lng: -87.47458654624543}; // Bot Left
+
+            // Porter Building Coordinates
+            const PORTERP1 = {lat: 41.58540983454981, lng: -87.47351260108323}; // Top Left
+            const PORTERP2 = {lat: 41.58540180973273, lng: -87.47274548936234}; // Top Right
+            const PORTERP3 = {lat: 41.5850868348742, lng: -87.47274280715354}; // Bot Right
+            const PORTERP4 = {lat: 41.58509285351647, lng: -87.47349919003915}; // Bot Left
+
+            // Office of Admissions Building Coordinates
+            const OFFICEP1 = {lat: 41.58324415257033, lng: -87.47560494597836}; // Top Left
+            const OFFICEP2 = {lat: 41.583293306201845, lng: -87.4751798158813}; // Top Right
+            const OFFICEP3 = {lat: 41.58267336581933, lng: -87.47517445146507}; // Bot Right
+            const OFFICEP4 = {lat: 41.58267938468655, lng: -87.47563042696349}; // Bot Left
+
+            // Fitness Building Coordinates
+            const FITNESSP1 = {lat: 41.58063765045891, lng: -87.4745391853471}; // Top Left
+            const FITNESSP2 = {lat: 41.580620596461095, lng: -87.47340863433189}; // Top Right
+            const FITNESSP3 = {lat: 41.579953480651504, lng: -87.47348105396162}; // Bot Right
+            const FITNESSP4 = {lat: 41.57994645834327, lng: -87.47437154728794}; // Bot Left
+
+            // Counseling Center Building Coordinates
+            const COUNSELINGP1 = {lat: 41.579594338742616, lng: -87.47526740499988}; // Top Left
+            const COUNSELINGP2 = {lat: 41.57959132916529, lng: -87.47498174976117}; // Top Right
+            const COUNSELINGP3 = {lat: 41.579230178868485, lng: -87.47500454853608}; // Bot Right
+            const COUNSELINGP4 = {lat: 41.57921814049049, lng: -87.47525801726901}; // Bot Left
+
+
+            
+            if (latitude >= SULBP3.lat && latitude <= SULBP1.lat && longitude >= SULBP1.lng && longitude <= SULBP2.lng) {
+                console.log("You are within the SULB building");
+                var sulb = document.createElement("p");
+                sulb.textContent = "You are within the SULB building";
+                document.body.appendChild(sulb);
+            } else if (latitude >= GYTEP3.lat && latitude <= GYTEP1.lat && longitude >= GYTEP1.lng && longitude <= GYTEP2.lng) {
+                console.log("You are within the GYTE building");
+                var gyte = document.createElement("p");
+                gyte.textContent = "You are within the GYTE building";
+                document.body.appendChild(gyte);
+            } else if (latitude >= POTTERP3.lat && latitude <= POTTERP1.lat && longitude >= POTTERP1.lng && longitude <= POTTERP2.lng) {
+                console.log("You are within the POTTER building");
+                var potter = document.createElement("p");
+                potter.textContent = "You are within the POTTER building";
+                document.body.appendChild(potter);
+            }
+            else if (latitude >= POWERSP3.lat && latitude <= POWERSP1.lat && longitude >= POWERSP1.lng && longitude <= POWERSP2.lng) {
+                console.log("You are within the POWERS building");
+                var powers = document.createElement("p");
+                powers.textContent = "You are within the POWERS building";
+                document.body.appendChild(powers);
+            }
+            else if (latitude >= CLOP3.lat && latitude <= CLOP1.lat && longitude >= CLOP1.lng && longitude <= CLOP2.lng) {
+                console.log("You are within the CLO building");
+                var clo = document.createElement("p");
+                clo.textContent = "You are within the CLO building";
+                document.body.appendChild(clo);
+            }
+            else if (latitude >= NILSP3.lat && latitude <= NILSP1.lat && longitude >= NILSP1.lng && longitude <= NILSP2.lng) {
+                console.log("You are within the NILS building");
+                var nils = document.createElement("p");
+                nils.textContent = "You are within the NILS building";
+                document.body.appendChild(nils);
+            }
+            else if (latitude >= PORTERP3.lat && latitude <= PORTERP1.lat && longitude >= PORTERP1.lng && longitude <= PORTERP2.lng) {
+                console.log("You are within the PORTER building");
+                var porter = document.createElement("p");
+                porter.textContent = "You are within the PORTER building";
+                document.body.appendChild(porter);
+            }
+            else if (latitude >= OFFICEP3.lat && latitude <= OFFICEP1.lat && longitude >= OFFICEP1.lng && longitude <= OFFICEP2.lng) {
+                console.log("You are within the Office of Admissions building");
+                var office = document.createElement("p");
+                office.textContent = "You are within the Office of Admissions building";
+                document.body.appendChild(office);
+            }
+            else if (latitude >= FITNESSP3.lat && latitude <= FITNESSP1.lat && longitude >= FITNESSP1.lng && longitude <= FITNESSP2.lng) {
+                console.log("You are within the Fitness building");
+                var fitness = document.createElement("p");
+                fitness.textContent = "You are within the Fitness building";
+                document.body.appendChild(fitness);
+            }
+            else if (latitude >= COUNSELINGP3.lat && latitude <= COUNSELINGP1.lat && longitude >= COUNSELINGP1.lng && longitude <= COUNSELINGP2.lng) {
+                console.log("You are within the Counseling Center building");
+                var counseling = document.createElement("p");
+                counseling.textContent = "You are within the Counseling Center building";
+                document.body.appendChild(counseling);
+            }
+            else if (latitude >= ANDERSONP3.lat && latitude <= ANDERSONP1.lat && longitude >= ANDERSONP1.lng && longitude <= ANDERSONP2.lng) {
+                console.log("You are within the Anderson building");
+                var anderson = document.createElement("p");
+                anderson.textContent = "You are within the Anderson building";
+                document.body.appendChild(anderson);
+            }
+            else {
+                console.log("You are not in any of the buildings");
+                var notInBuilding = document.createElement("p");
+                notInBuilding.textContent = "You are not in any of the buildings";
+                document.body.appendChild(notInBuilding);
+            }
+           
+        }
+
+        function showError(error) {
+            console.log(error);
+        }       
+    </script>
+</head>
+<body>
+    <h1>Geolocation API Example</h1>
+    <button onclick="getLocation()">Get Location</button>
+</body>
+</html>
