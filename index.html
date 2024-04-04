@@ -31,7 +31,7 @@
             location.textContent = "Latitude: " + latitude + ", Longitude: " + longitude + ", Accuracy: " + accuracy + " meters";
             document.body.appendChild(location);
 
-            // Check if the lat/longitude is within a certain range
+            // Check if the lat/longitude is within SULB
             const SULBP1 = {lat: 41.584527, lng: -87.474722}; // Top Left
             const SULBP2 = {lat: 41.584527, lng: -87.473389}; // Top Right
             const SULBP3 = {lat: 41.584083, lng: -87.473306}; // Bot Right
@@ -43,11 +43,40 @@
                 sulb.textContent = "You are within the SULB building";
                 document.body.appendChild(sulb);
             } else {
-                console.log("You are NOT within the SULB building");
-                var notSulb = document.createElement("p");
-                notSulb.textContent = "You are NOT within the SULB building";
-                document.body.appendChild(notSulb);
+                console.log("Not in SULB, checking GYTE");
             }
+
+            //Check if the lat/longitude is within GYTE
+            const GYTEP1 = {lat: 41.58507468211897, lng: -87.47417968245455}; // Top Left
+            const GYTEP2 = {lat: 41.58507468211897, lng: -87.47564953296393}; // Top Right
+            const GYTEP3 = {lat: 41.585044588893574, lng: -87.47564953296393}; // Bot Right
+            const GYTEP4 = {lat: 41.585044588893574, lng: -87.47417968245455}; // Bot Left
+
+            if (latitude >= GYTEP3.lat && latitude <= GYTEP1.lat && longitude >= GYTEP1.lng && longitude <= GYTEP2.lng) {
+                console.log("You are within the GYTE building");
+                var gyte = document.createElement("p");
+                gyte.textContent = "You are within the GYTE building";
+                document.body.appendChild(gyte);
+            } else {
+                console.log("Not in GYTE, checking POTTER");
+            }
+
+            //Check if the lat/longitude is within POTTER
+            const POTTERP1 = {lat: 41.586511340457825, lng: -87.47504375643874}; // Top Left
+            const POTTERP2 = {lat: 41.586513346627704, lng: -87.47474066684273}; // Top Right
+            const POTTERP3 = {lat: 41.58616728139962, lng: -87.47474334905155}; // Bot Right
+            const POTTERP4 = {lat: 41.586161262857495, lng: -87.47505984969162}; // Bot Left
+
+            if (latitude >= POTTERP3.lat && latitude <= POTTERP1.lat && longitude >= POTTERP1.lng && longitude <= POTTERP2.lng) {
+                console.log("You are within the POTTER building");
+                var potter = document.createElement("p");
+                potter.textContent = "You are within the POTTER building";
+                document.body.appendChild(potter);
+            } else {
+                console.log("Not in POTTER, checking POWERS");
+            }
+
+            //Check if the lat/longitude is within POWERS
         }
 
         function showError(error) {
