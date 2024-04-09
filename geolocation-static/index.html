@@ -57,6 +57,12 @@
             var longitude = position.coords.longitude;
             var accuracy = position.coords.accuracy;
 
+            if ( accuracy > 100 ) {
+                var accWarning = document.createElement("h2");
+                accWarning.textContent = "WARNING! Results will not be accurate, accuracy radius is too high!";
+                document.body.appendChild(accWarning);
+            }
+
             // Do something with the latitude, longitude, and accuracy values
             console.log("Latitude: " + latitude);
             console.log("Longitude: " + longitude);
