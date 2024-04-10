@@ -1,0 +1,4 @@
+- add stylized global header and footer to all pages
+- look into svg more
+- figure out zooming in and out on the svg ized map
+- also need to make a scale for the map 1 ft = x? px, maybe not like this but somehting similar
