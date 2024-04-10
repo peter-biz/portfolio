@@ -12,3 +12,6 @@
 * Decide if i want the website to be page based or scroll based, ie: click the "about" link, do i want it to load a whole new page, or just scroll down to the about section.
 * Do i want anything else?
 * 
+
+# Current -- :
+* Using to store web-dev projectgs n stuff
